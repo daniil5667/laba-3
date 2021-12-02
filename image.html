@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        var oneword = ["А", "Б", "В", "Е", "Ё", "Ж", "И", "К", "О", "С", "У", "Ы", "Э", "Ю", "Я"];
+        var text = prompt("Ваша строка");
+        var sentenses = [];
+        var finalAnswer = [];
+        var finalAnswer2 = [];
+        var countFinal = 0;
+        var countFinal2 = 0;
+        var toggle = false;
+        sentenses = text.split(".");
+
+        for(var i = 0; i < sentenses.length; i++){
+            var t = sentenses[i];
+            for(var z = 0; z < oneword.length; z++){
+                var temp = 0;
+                if(t[temp] == " ") {temp++;}
+                if(t[temp] == oneword[z]){
+                    if(t[temp + 1] == " "){
+                    finalAnswer[countFinal] = t;
+                    countFinal++;
+                    break;
+                    }
+                    else{toggle = true;}
+                }
+                if(z+1 == oneword.length) {toggle = true;}
+                if(toggle){
+                    finalAnswer2[countFinal2] = t;
+                    countFinal2++;
+                    toggle = false;
+                    break;
+                }
+                
+            }
+        }
+
+        alert("Однобуквенные - " + finalAnswer);
+        alert("Остальные - " + finalAnswer2);
+    </script>
+</body>
+</html>
